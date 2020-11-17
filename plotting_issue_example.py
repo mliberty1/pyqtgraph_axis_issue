@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QWidget, QGridLayout
+from PySide2.QtWidgets import QMainWindow, QWidget, QGridLayout
 from pyqtgraph import ViewBox, PlotItem
 from pyqtgraph.Qt import QtGui, QtCore
 import pyqtgraph as pg
@@ -53,42 +53,8 @@ grid_subplot1.setXLink(grid_subplot2)
 grid_subplot2.setXLink(grid_subplot3)
 grid_subplot3.setXLink(grid_subplot4)
 
-#
-# Vertical section
-#
-vertical_widget = pg.GraphicsLayoutWidget()
-vertical_viewBox1 = ViewBox(enableMenu=True)
-vertical_viewBox1.setXRange(0, 5, padding=0)
-vertical_viewBox1.setYRange(0, 2.5, padding=0)
-vertical_subplot1 = PlotItem(viewBox=vertical_viewBox1)
-vertical_subplot1.showGrid(True, True, 0.2)
-vertical_viewBox1.setParent(vertical_subplot1)
-vertical_widget.addItem(vertical_subplot1, col=0, row=2)
-
-vertical_viewBox2 = ViewBox(enableMenu=True)
-vertical_viewBox2.setXRange(0, 5, padding=0)
-vertical_viewBox2.setYRange(0, 2.5, padding=0)
-vertical_subplot2 = PlotItem(viewBox=vertical_viewBox2)
-vertical_subplot2.showGrid(True, True, 0.2)
-vertical_viewBox2.setParent(vertical_subplot2)
-vertical_widget.addItem(vertical_subplot2, col=0, row=3)
-
-vertical_viewBox3 = ViewBox(enableMenu=True)
-vertical_viewBox3.setXRange(0, 5, padding=0)
-vertical_viewBox3.setYRange(0, 2.5, padding=0)
-vertical_subplot3 = PlotItem(viewBox=vertical_viewBox3)
-vertical_subplot3.showGrid(True, True, 0.2)
-vertical_viewBox3.setParent(vertical_subplot3)
-vertical_widget.addItem(vertical_subplot3, col=0, row=4)
-
-#
-# Vertical XLink 1->2,2-3
-#
-vertical_subplot1.setXLink(vertical_subplot2)
-vertical_subplot2.setXLink(vertical_subplot3)
 
 holder_layout.addWidget(grid_widget)
-holder_layout.addWidget(vertical_widget)
 
 
 if __name__ == '__main__':
